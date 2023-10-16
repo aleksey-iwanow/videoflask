@@ -1,0 +1,90 @@
+:root {
+  --width-left-window: 500px;
+}
+
+@font-face {
+	font-family: 'Never';
+	src: url(/static/font/CatV.ttf);
+}
+
+body {
+    font-family: 'Never';
+    background:
+    linear-gradient(
+    #525252, transparent 1px
+    ),
+    linear-gradient(
+    90deg,
+    #525252, transparent 1px
+    );
+    background-size: 20px 20px;
+    background-color: #000000;
+}
+
+h1{
+    color: black;
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0px;
+    padding-right: 0px;
+    max-width: 100%;
+    height: calc(100vh - 100px);
+}
+
+.container-column {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    padding-right: 0px;
+    max-width: 100%;
+}
+
+.window-left {
+    background-color: #000000;
+    width: var(--width-left-window);
+    overflow: auto;
+    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.window-left::-webkit-scrollbar {
+  width: 12px;               /* ширина scrollbar */
+}
+.window-left::-webkit-scrollbar-track {
+  background: #26801E;        /* цвет дорожки */
+}
+.window-left::-webkit-scrollbar-thumb {
+  background-color: #14D100;
+}
+
+.window-right {
+    background-color: rgba(0,0,0,0);
+    width: calc(100% - var(--width-left-window));
+    height: calc(100% - 100px);
+    position: fixed;
+    left: var(--width-left-window);
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.up-panel {
+    background-color: #26801E;
+    border-down: 2px solid white;
+    width: calc(100%);
+    height: calc(50px);
+    position: fixed;
+
+}
+
+.down-panel {
+    background-color: #26801E;
+    width: calc(100%);
+    height: calc(50px);
+    border-up: 2px solid white;
+    position: fixed;
+    bottom: 0px;
+}
