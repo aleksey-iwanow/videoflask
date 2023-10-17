@@ -1,7 +1,7 @@
 import subprocess
 import urllib.request
 
-from flask import Flask, render_template, Response, jsonify
+from flask import Flask, request, render_template, Response, jsonify
 from camera import VideoCamera
 
 app = Flask(__name__)
@@ -26,9 +26,21 @@ def get_info():
     return info
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return render_template('index.html', info=get_info())
+    return render_template("index.html", info=get_info())
+
+
+@app.route('/reboot_yes')
+def reboot_yes():
+    print("Hello")
+    return "nothing"
+
+
+@app.route('/reboot_no')
+def reboot_no():
+    print("Hello2")
+    return "nothing"
 
 
 def gen(camera):

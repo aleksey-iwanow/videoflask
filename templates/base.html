@@ -13,8 +13,31 @@
     <!-- кастомные стили -->
     <link rel="stylesheet" href="/static/css/custom.css">
     <link rel="stylesheet" href="/static/font/CatV.ttf">
+
   </head>
   <body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $(function() {
+          $('a#reboot-yes').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/reboot-yes',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+
+          $('a#reboot-no').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/reboot-no',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+    </script>
     {% block content %}
     {% endblock %}
   </body>
