@@ -1,5 +1,5 @@
 :root {
-  --width-left-window: 500px;
+  --width-left-window: 200px;
   --gr: #26801E;
   --gr2: #20541C;
   --rd: #CA0707;
@@ -54,8 +54,12 @@ h3{
     flex-direction: row;
     padding-left: 0px;
     padding-right: 0px;
+    margin: 70px 20px;
+    border-radius: 20px;
+    border: 3px solid rgba(0,233,42,20);
+    overflow: hidden;
     max-width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 140px);
 }
 
 .container-column {
@@ -111,13 +115,10 @@ h3{
 }
 
 .window-left {
-    background-color: #000000;
+    background-color: rgba(31,210,219,0.5);
     width: var(--width-left-window);
     overflow: auto;
     height: 100%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border-right: 3px solid var(--gr)
 }
 
 .window-left::-webkit-scrollbar {
@@ -131,13 +132,21 @@ h3{
 }
 
 .window-right {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0,122,12,0.2);
+    border-left: 3px solid rgba(0,233,42,20);
     width: calc(100% - var(--width-left-window));
-    height: calc(100% - 100px);
-    position: fixed;
-    left: var(--width-left-window);
-    margin-top: 50px;
-    margin-bottom: 50px;
+    height: height: 100%;
+    left: calc(var(--width-left-window) + 20px);
+}
+
+.window-right::-webkit-scrollbar {
+  width: 12px;               /* ширина scrollbar */
+}
+.window-right::-webkit-scrollbar-track {
+  background: var(--gr);        /* цвет дорожки */
+}
+.window-right::-webkit-scrollbar-thumb {
+  background-color: #14D100;
 }
 
 .up-panel {
