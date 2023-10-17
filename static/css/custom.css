@@ -4,6 +4,9 @@
   --gr2: #20541C;
   --rd: #CA0707;
   --rd2: #860909;
+  --dfiol: #6F2692;
+  --fiol: #FF1ABB;
+  --lblue: #C8A2EB;
 }
 
 @font-face {
@@ -37,13 +40,9 @@ pp{
 }
 
 .block-title{
-    background-color: var(--gr);
-    color: black;
+    background-color: #AB274F;
+    color: #4D0018;
     padding-left: 10px;
-}
-
-h1{
-    color: black;
 }
 
 h3{
@@ -143,8 +142,10 @@ h3{
 
 .up-panel {
     padding-left: 10px;
-    background-color: var(--gr);
-    border-down: 2px solid white;
+    background-color: var(--dfiol);
+    color: var(--lblue);
+    border-bottom: 3px solid var(--fiol);
+    border-top: 3px solid var(--fiol);
     width: calc(100%);
     height: calc(50px);
     position: fixed;
@@ -155,7 +156,10 @@ h3{
     background-color: var(--gr);
     width: calc(100%);
     height: calc(50px);
-    border-up: 2px solid white;
+    color: var(--lblue);
+    background-color: var(--dfiol);
+    border-bottom: 3px solid var(--fiol);
+    border-top: 3px solid var(--fiol);
     position: fixed;
     bottom: 0px;
 }
