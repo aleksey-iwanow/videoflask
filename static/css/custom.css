@@ -1,12 +1,13 @@
 :root {
   --width-left-window: 200px;
-  --gr: #26801E;
+  --gr: rgba(0,233,42,0.7);
   --gr2: #20541C;
   --rd: #CA0707;
   --rd2: #860909;
   --dfiol: #6F2692;
   --fiol: #FF1ABB;
   --lblue: #C8A2EB;
+  --bpad: 100px;
 }
 
 @font-face {
@@ -54,7 +55,7 @@ h3{
     flex-direction: row;
     padding-left: 0px;
     padding-right: 0px;
-    margin: 70px 20px;
+    margin: 70px var(--bpad);
     border-radius: 20px;
     border: 3px solid rgba(0,233,42,20);
     overflow: hidden;
@@ -136,7 +137,7 @@ h3{
     border-left: 3px solid rgba(0,233,42,20);
     width: calc(100% - var(--width-left-window));
     height: height: 100%;
-    left: calc(var(--width-left-window) + 20px);
+    left: calc(var(--width-left-window) + var(--bpad));
 }
 
 .window-right::-webkit-scrollbar {
@@ -151,10 +152,8 @@ h3{
 
 .up-panel {
     padding-left: 10px;
-    background-color: var(--dfiol);
-    color: var(--lblue);
-    border-bottom: 3px solid var(--fiol);
-    border-top: 3px solid var(--fiol);
+    background-color: var(--gr);
+    color: black;
     width: calc(100%);
     height: calc(50px);
     position: fixed;
@@ -165,10 +164,7 @@ h3{
     background-color: var(--gr);
     width: calc(100%);
     height: calc(50px);
-    color: var(--lblue);
-    background-color: var(--dfiol);
-    border-bottom: 3px solid var(--fiol);
-    border-top: 3px solid var(--fiol);
+    color: black;
     position: fixed;
     bottom: 0px;
 }
