@@ -31,14 +31,26 @@ def index():
     return render_template("index.html", info=get_info())
 
 
-@app.route('/reboot_yes')
+@app.route('/reboot-yes')
 def reboot_yes():
     print("Hello")
     return "nothing"
 
 
-@app.route('/reboot_no')
+@app.route('/reboot-no')
 def reboot_no():
+    print("Hello2")
+    return "nothing"
+
+
+@app.route('/display-yes')
+def display_yes():
+    p = subprocess.run("python /usr/bin/display.py", shell=True)
+    return "nothing"
+
+
+@app.route('/display-no')
+def display_no():
     print("Hello2")
     return "nothing"
 
@@ -56,4 +68,4 @@ def video_feed():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=5011)
+    app.run(host='0.0.0.0', port=5000)
