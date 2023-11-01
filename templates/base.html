@@ -14,14 +14,74 @@
     <link rel="stylesheet" href="/static/css/custom.css">
     <link rel="stylesheet" href="/static/font/CatV.ttf">
 
+    <!--<meta http-equiv="refresh" content="5" />-->
   </head>
   <body>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    {% block content %}
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type=text/javascript>
+        const style_yes = document.getElementById("display-yes").style;
+        const style_no = document.getElementById("display-no").style;
+        const style_def = "width: 40px; height: 40px; color: #444444; background-color: black; padding: 4px 8px;";
+        $(document).ready(function() {
+          setInterval(function() {
+              $.ajax({
+                  url: '/update_data',
+                  type: 'GET',
+                  success: function(response) {
+                      document.getElementById('info').innerHTML = response;
+                  }
+              });
+          }, 1000);
+        });
+
         $(function() {
-          const style_yes = document.getElementById("display-yes").style;
-          const style_no = document.getElementById("display-no").style;
-          const style_def = "width: 40px; height: 40px; color: #444444; background-color: black; padding: 4px 8px;";
+          $('a#left').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/click-left',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+
+          $('a#up').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/click-up',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+
+          $('a#click').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/click-run',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+
+          $('a#down').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/click-down',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+
+          $('a#right').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/click-right',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+
           $('a#reboot').on('click', function(e) {
             e.preventDefault()
             $.getJSON('/reboot',
@@ -31,30 +91,32 @@
             return false;
           });
 
+          var dn = document.getElementById("display-no");
+          var dy = document.getElementById("display-yes");
+          dn.style.cssText = style_def;
           $('a#display-no').on('click', function(e) {
-            e.preventDefault()
-            $.getJSON('/display-no',
-                function(data) {
-              //do nothing
-            });
-            document.getElementById("display-yes").style = style_yes;
-            document.getElementById("display-no").style.cssText = style_def;
-            return false;
+              e.preventDefault()
+              $.getJSON('/display-no',
+                  function(data) {
+                //do nothing
+              });
+              dy.style = style_yes;
+              dn.style.cssText = style_def;
+              return false;
           });
 
           $('a#display-yes').on('click', function(e) {
-            e.preventDefault()
-            $.getJSON('/display-yes',
-                function(data) {
-              //do nothing
-            });
-            document.getElementById("display-yes").style.cssText = style_def;
-            document.getElementById("display-no").style = style_no;
-            return false;
+              e.preventDefault()
+              $.getJSON('/display-yes',
+                  function(data) {
+                //do nothing
+              });
+              dy.style.cssText = style_def;
+              dn.style = style_no;
+              return false;
           });
+
         });
     </script>
-    {% block content %}
-    {% endblock %}
   </body>
 </html>

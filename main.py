@@ -1,8 +1,9 @@
 import subprocess
 import urllib.request
-
+from display import *
 from flask import Flask, request, render_template, Response, jsonify
 from camera import VideoCamera
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -22,9 +23,18 @@ def get_info():
         temp = subprocess.check_output(cmd, shell=True)
         info = [f'IP: {IP}', CPU, MemUsage, Disk, f'Temperature: {temp}']
     except Exception as error:
-        info = [f'IP: {IP}', "CPU", "MemUsage", "Disk", "temp"]
+        info = [f'IP: {IP}',
+                "CPU",
+                "MemUsage",
+                "Disk",
+                f"time: {datetime.now()}"]
     return info
 
+
+@app.route('/update_data', methods=['GET'])
+def update_data():
+    data = "<br/>".join([a for a in get_info()])
+    return data
 
 @app.route("/")
 def index():
@@ -34,19 +44,53 @@ def index():
 @app.route('/reboot')
 def reboot():
     print("reboot now")
-    return "nothing"
+    return ""
+
+
+@app.route('/click-left')
+def click_left():
+    application.clicked(1)
+    return ""
+
+
+@app.route('/click-up')
+def click_up():
+    application.clicked(2)
+    return ""
+
+
+@app.route('/click-run')
+def click_run():
+    application.clicked(3)
+    return ""
+
+
+@app.route('/click-down')
+def click_down():
+    application.clicked(4)
+    return ""
+
+
+@app.route('/click-right')
+def click_right():
+    application.clicked(5)
+    return ""
 
 
 @app.route('/display-yes')
 def display_yes():
-    p = subprocess.run("python /usr/bin/display.py", shell=True)
-    return "nothing"
+    if application.active_display:
+        application.off_display()
+        print(application.active_display)
+    return ""
 
 
 @app.route('/display-no')
 def display_no():
-    print("Hello2")
-    return "nothing"
+    if not application.active_display:
+        application.on_display()
+        print(application.active_display)
+    return ""
 
 
 def gen(camera):
@@ -58,7 +102,7 @@ def gen(camera):
 
 @app.route('/video_feed')
 def video_feed():
-     return Response(gen(video_stream), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(gen(video_stream), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 if __name__ == '__main__':

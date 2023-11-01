@@ -38,7 +38,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 10px 10px;
-    width: 300px;
+    width: 320px;
 }
 
 pp{
@@ -85,12 +85,44 @@ h3{
     margin: 10px
 }
 
+.p2-sett{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+}
+
 .button-yes{
     width: 40px;
     height: 40px;
     color: black;
     background-color: var(--gr);
     padding: 5px;
+}
+
+.button{
+    width: 50px;
+    height: 50px;
+    color: black;
+    font-size: 35px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: var(--gr2);
+    border-right: 2px solid var(--gr);
+    border-top: 2px solid var(--gr);
+    border-bottom: 2px solid var(--gr);
+}
+
+.button:hover{
+    background-color: var(--grd);
+    color: white;
+}
+
+.button:active{
+    background-color: var(--grd);
+    color: white;
 }
 
 .text-panel-1{
@@ -113,18 +145,27 @@ h3{
 
 .button-no:hover{
     background-color: var(--rd2);
+    color: white;
 }
 
 .button-no:active{
     background-color: var(--rd2);
+    color: white;
+}
+
+a{
+    text-decoration: none;
+	color: white;
 }
 
 .button-yes:hover{
     background-color: var(--gr2);
+    color: white;
 }
 
 .button-yes:active{
     background-color: var(--gr2);
+    color: white;
 }
 
 .window-left {
