@@ -19,18 +19,12 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type=text/javascript>
         $(function() {
-          $('a#reboot-yes').on('click', function(e) {
+          const style_yes = document.getElementById("display-yes").style;
+          const style_no = document.getElementById("display-no").style;
+          const style_def = "width: 40px; height: 40px; color: #444444; background-color: black; padding: 4px 8px;";
+          $('a#reboot').on('click', function(e) {
             e.preventDefault()
-            $.getJSON('/reboot-yes',
-                function(data) {
-              //do nothing
-            });
-            return false;
-          });
-
-          $('a#reboot-no').on('click', function(e) {
-            e.preventDefault()
-            $.getJSON('/reboot-no',
+            $.getJSON('/reboot',
                 function(data) {
               //do nothing
             });
@@ -43,6 +37,8 @@
                 function(data) {
               //do nothing
             });
+            document.getElementById("display-yes").style = style_yes;
+            document.getElementById("display-no").style.cssText = style_def;
             return false;
           });
 
@@ -52,6 +48,8 @@
                 function(data) {
               //do nothing
             });
+            document.getElementById("display-yes").style.cssText = style_def;
+            document.getElementById("display-no").style = style_no;
             return false;
           });
         });

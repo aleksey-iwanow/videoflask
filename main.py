@@ -31,15 +31,9 @@ def index():
     return render_template("index.html", info=get_info())
 
 
-@app.route('/reboot-yes')
-def reboot_yes():
-    print("Hello")
-    return "nothing"
-
-
-@app.route('/reboot-no')
-def reboot_no():
-    print("Hello2")
+@app.route('/reboot')
+def reboot():
+    print("reboot now")
     return "nothing"
 
 

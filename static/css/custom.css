@@ -1,6 +1,7 @@
 :root {
   --width-left-window: 150px;
   --gr: rgba(0,233,42,0.7);
+  --grd: rgba(0,233,42,0.4);
   --gr2: #20541C;
   --rd: #CA0707;
   --rd2: #860909;
@@ -30,10 +31,14 @@ body {
 }
 
 .block{
-    margin: 20px 20px;
-    border-radius: 10px;
-    background-color: #333333;
     overflow: hidden;
+}
+
+.block-values{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px;
+    width: 300px;
 }
 
 pp{
@@ -41,9 +46,11 @@ pp{
 }
 
 .block-title{
-    background-color: #AB274F;
-    color: #4D0018;
-    padding-left: 10px;
+    border-bottom: 3px solid rgb(0,233,42);
+    border-top: 3px solid rgb(0,233,42);
+    background: var(--grd);
+    text-align: center;
+    color: rgb(87,10,83);
 }
 
 h3{
@@ -86,7 +93,12 @@ h3{
     padding: 5px;
 }
 
-.text-panel{
+.text-panel-1{
+    width: calc(100% - 40px);
+    padding-left: 5px;
+}
+
+.text-panel-2{
     width: calc(100% - 80px);
     padding-left: 5px;
 }
@@ -95,7 +107,7 @@ h3{
     width: 40px;
     height: 40px;
     color: black;
-    background-color: var(--rd);
+    background-color: red;
     padding: 4px 8px;
 }
 
@@ -122,33 +134,23 @@ h3{
     height: 100%;
 }
 
-.window-left::-webkit-scrollbar {
-  width: 12px;               /* ширина scrollbar */
-}
-.window-left::-webkit-scrollbar-track {
-  background: var(--gr);        /* цвет дорожки */
-}
-.window-left::-webkit-scrollbar-thumb {
-  background-color: #14D100;
-}
-
-.window-right {
-    background-color: rgba(0,122,12,0.2);
-    border-left: 3px solid rgba(0,233,42,20);
-    width: calc(100% - var(--width-left-window));
+.window {
+    background-color: rgba(0,122,12,0.1);
+    border-left: 3px solid rgb(0,233,42);
+    width: 100%;
     height: 100%;
     overflow: auto;
-    left: calc(var(--width-left-window) + var(--bpad));
+    left: var(--bpad);
 }
 
-.window-right::-webkit-scrollbar {
+.window::-webkit-scrollbar {
   width: 12px;               /* ширина scrollbar */
 }
-.window-right::-webkit-scrollbar-track {
-  background: var(--gr);        /* цвет дорожки */
+.window::-webkit-scrollbar-track {
+  background: black;        /* цвет дорожки */
 }
-.window-right::-webkit-scrollbar-thumb {
-  background-color: #14D100;
+.window::-webkit-scrollbar-thumb {
+  background-color: var(--grd);
 }
 
 .up-panel {

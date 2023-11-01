@@ -5,19 +5,16 @@
   -->
   <div class="container-column">
     <div class="up-panel">
-      <h1>[*] Сервер</h1>
+      <h1 style="font-size: 40px">[*] Сервер</h1>
     </div>
     <div class="container-row">
-      <div class="window-left" id="sidebar">
-        <div class="block-title" style="color: black; background-color: var(--gr)"><pp>Параметры</pp> </div>
-      </div>
-      <div class="window-right">
+      <div class="window">
         <!--<img style="padding-left: 50px; padding-right: 50px; width: 100%" src="{{ url_for('video_feed') }}" />-->
         <div>
 
           <div class="block">
             <div class="block-title"><pp>Информация: </pp></div>
-            <div style="padding: 10px 10px;">
+            <div class="block-values">
               {% for i in info %}
                 <h3>{{ i }}</h3>
               {% endfor %}
@@ -26,18 +23,17 @@
 
           <div class="block">
             <div class="block-title"><pp>Настройки:</pp> </div>
-            <div style="padding: 10px 10px;">
+            <div class="block-values">
 
               <div class="p-sett">
-                <div class="text-panel">
+                <div class="text-panel-1">
                   <h3 style="margin: 3px 0px;">перезагрузка</h3>
                 </div>
-                <a href=# id=reboot-yes class="button-yes">{% include 'yes.html' %}</a>
-                <a href=# id=reboot-no class="button-no">{% include 'no.html' %}</a>
+                <a href=# id=reboot class="button-yes">{% include 'yes.html' %}</a>
               </div>
 
               <div class="p-sett">
-                <div class="text-panel">
+                <div class="text-panel-2">
                   <h3 style="margin: 3px 0px;">дисплей</h3>
                 </div>
                 <a href=# id=display-yes class="button-yes">{% include 'yes.html' %}</a>
@@ -46,77 +42,6 @@
 
             </div>
           </div>
-
-          <div class="block">
-            <div class="block-title"><pp>Настройки:</pp> </div>
-            <div style="padding: 10px 10px;">
-
-              <div class="p-sett">
-                <div class="text-panel">
-                  <h3 style="margin: 3px 0px;">перезагрузка</h3>
-                </div>
-                <a href=# class="button-yes">{% include 'yes.html' %}</a>
-                <a href=# class="button-no">{% include 'no.html' %}</a>
-              </div>
-
-              <div class="p-sett">
-                <div class="text-panel">
-                  <h3 style="margin: 3px 0px;">дисплей</h3>
-                </div>
-                <a href=# class="button-yes">{% include 'yes.html' %}</a>
-                <a href=# class="button-no">{% include 'no.html' %}</a>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="block">
-            <div class="block-title"><pp>Настройки:</pp> </div>
-            <div style="padding: 10px 10px;">
-
-              <div class="p-sett">
-                <div class="text-panel">
-                  <h3 style="margin: 3px 0px;">перезагрузка</h3>
-                </div>
-                <a href=# class="button-yes">{% include 'yes.html' %}</a>
-                <a href=# class="button-no">{% include 'no.html' %}</a>
-              </div>
-
-              <div class="p-sett">
-                <div class="text-panel">
-                  <h3 style="margin: 3px 0px;">дисплей</h3>
-                </div>
-                <a href=# class="button-yes">{% include 'yes.html' %}</a>
-                <a href=# class="button-no">{% include 'no.html' %}</a>
-              </div>
-
-            </div>
-          </div>
-
-
-          <div class="block">
-            <div class="block-title"><pp>Настройки:</pp> </div>
-            <div style="padding: 10px 10px;">
-
-              <div class="p-sett">
-                <div class="text-panel">
-                  <h3 style="margin: 3px 0px;">перезагрузка</h3>
-                </div>
-                <a href=# class="button-yes">{% include 'yes.html' %}</a>
-                <a href=# class="button-no">{% include 'no.html' %}</a>
-              </div>
-
-              <div class="p-sett">
-                <div class="text-panel">
-                  <h3 style="margin: 3px 0px;">дисплей</h3>
-                </div>
-                <a href=# class="button-yes">{% include 'yes.html' %}</a>
-                <a href=# class="button-no">{% include 'no.html' %}</a>
-              </div>
-
-            </div>
-          </div>
-
 
         </div>
       </div>
