@@ -1,63 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <!--<img src="{{ url_for('video_feed') }}" />
-  -->
-  <div class="container-column">
-    <div class="up-panel">
-      <h1 style="font-size: 40px">[*] Сервер</h1>
+<div>
+  <div class="block">
+    <div class="block-title"><pp>Информация: </pp></div>
+    <div class="block-values">
+      <h3 id=info></h3>
     </div>
-    <div class="container-row">
-      <div class="window">
-        <!--<img style="padding-left: 50px; padding-right: 50px; width: 100%" src="{{ url_for('video_feed') }}" />-->
-        <div>
+  </div>
 
-          <div class="block">
-            <div class="block-title"><pp>Информация: </pp></div>
-            <div class="block-values">
-              <h3 id=info></h3>
-            </div>
-          </div>
-
-          <div class="block">
-            <div class="block-title"><pp>Настройки:</pp> </div>
-            <div class="block-values">
-              <div class="p2-sett">
-                <a href=# id=left class="button" style="border-left: 2px solid var(--gr);">←</a>
-                <a href=# id=up class="button">↑</a>
-                <a href=# id=click class="button">〇</a>
-                <a href=# id=down class="button">↓</a>
-                <a href=# id=right class="button">→</a>
-              </div>
-              <div class="p-sett">
-                <div class="text-panel-1">
-                  <h3 style="margin: 3px 0px;">перезагрузка</h3>
-                </div>
-                <a href=# id=reboot class="button-yes">{% include 'yes.html' %}</a>
-              </div>
-
-              <div class="p-sett">
-                <div class="text-panel-2">
-                  <h3 style="margin: 3px 0px;">дисплей</h3>
-                </div>
-                <a href=# id=display-yes class="button-yes">{% include 'yes.html' %}</a>
-                <a href=# id=display-no class="button-no">{% include 'no.html' %}</a>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="block">
-            <div class="block-title"><pp>Камера:</pp> </div>
-            <div style="padding: 10px 0px">
-              <img style="padding-left: 50px; padding-right: 50px; width: 100%" src="{{ url_for('video_feed') }}"/>
-            </div>
-          </div>
-        </div>
+  <div class="block">
+    <div class="block-title"><pp>Настройки:</pp> </div>
+    <div class="block-values">
+      <div class="p2-sett">
+        <a href=# id=left class="button" style="border-left: 2px solid var(--gr);">←</a>
+        <a href=# id=up class="button">↑</a>
+        <a href=# id=click class="button">〇</a>
+        <a href=# id=down class="button">↓</a>
+        <a href=# id=right class="button">→</a>
       </div>
-    </div>
-    <div class="down-panel">
+      <div class="p-sett">
+        <div class="text-panel-1">
+          <h3 style="margin: 3px 0px;">перезагрузка</h3>
+        </div>
+        <a href=# id=reboot class="button-yes">{% include 'yes.html' %}</a>
+      </div>
+
+      <div class="p-sett">
+        <div class="text-panel-2">
+          <h3 style="margin: 3px 0px;">дисплей</h3>
+        </div>
+        <a href=# id=display-yes class="button-yes">{% include 'yes.html' %}</a>
+        <a href=# id=display-no class="button-no">{% include 'no.html' %}</a>
+      </div>
 
     </div>
   </div>
+
+  <div class="block">
+    <div class="block-title"><pp>Камера:</pp> </div>
+    <div style="padding: 10px 0px">
+      <img style="padding-left: 50px; padding-right: 50px; width: 100%" src="{{ url_for('video_feed') }}"/>
+    </div>
+  </div>
+</div>
 {% endblock %}

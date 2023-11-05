@@ -17,8 +17,24 @@
     <!--<meta http-equiv="refresh" content="5" />-->
   </head>
   <body>
-    {% block content %}
-    {% endblock %}
+    <!--<img src="{{ url_for('video_feed') }}" />-->
+    <div class="container-column">
+      <div class="up-panel">
+        <div style="width: 60px">
+          <h1 style="font-size: 40px">[*]</h1>
+        </div>
+        <a href=/ class="link">System</a>
+        <a href=/code class="link">Files</a>
+      </div>
+      <div class="container-row">
+        <div class="window">
+          <!--<img style="padding-left: 50px; padding-right: 50px; width: 100%" src="{{ url_for('video_feed') }}" />-->
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type=text/javascript>
         const style_yes = document.getElementById("display-yes").style;

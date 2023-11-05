@@ -11,7 +11,10 @@ video_stream = VideoCamera()
 
 
 def get_info():
-    IP = urllib.request.urlopen('https://ident.me').read().decode('utf8')
+    try:
+        IP = urllib.request.urlopen('https://ident.me').read().decode('utf8')
+    except Exception as error:
+        IP = socket.gethostname()
     try:
         cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %.2f\", $(NF-2)}'"
         CPU = subprocess.check_output(cmd, shell=True)
@@ -21,7 +24,11 @@ def get_info():
         Disk = subprocess.check_output(cmd, shell=True)
         cmd = "vcgencmd measure_temp |cut -f 2 -d '='"
         temp = subprocess.check_output(cmd, shell=True)
-        info = [f'IP: {IP}', CPU, MemUsage, Disk, f'Temperature: {temp}']
+        info = [f"IP: {str(IP)}",
+                str(CPU, 'utf-8'),
+                str(MemUsage, 'utf-8'),
+                str(Disk, 'utf-8'),
+                f"Temp: {str(temp, 'utf-8')}"]
     except Exception as error:
         info = [f'IP: {IP}',
                 "CPU",
@@ -36,9 +43,15 @@ def update_data():
     data = "<br/>".join([a for a in get_info()])
     return data
 
+
 @app.route("/")
 def index():
     return render_template("index.html", info=get_info())
+
+
+@app.route("/code")
+def code():
+    return render_template("code.html")
 
 
 @app.route('/reboot')
