@@ -37,8 +37,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type=text/javascript>
-        const style_yes = document.getElementById("display-yes").style;
-        const style_no = document.getElementById("display-no").style;
+        const style_yes = document.getElementById("display1-yes").style;
+        const style_no = document.getElementById("display1-no").style;
         const style_def = "width: 40px; height: 40px; color: #444444; background-color: black; padding: 4px 8px;";
         $(document).ready(function() {
           setInterval(function() {
@@ -107,28 +107,53 @@
             return false;
           });
 
-          var dn = document.getElementById("display-no");
-          var dy = document.getElementById("display-yes");
-          dn.style.cssText = style_def;
-          $('a#display-no').on('click', function(e) {
+          var dn1 = document.getElementById("display1-no");
+          var dy1 = document.getElementById("display1-yes");
+          dn1.style.cssText = style_def;
+          $('a#display1-no').on('click', function(e) {
               e.preventDefault()
-              $.getJSON('/display-no',
+              $.getJSON('/display1-no',
                   function(data) {
                 //do nothing
               });
-              dy.style = style_yes;
-              dn.style.cssText = style_def;
+              dy1.style = style_yes;
+              dn1.style.cssText = style_def;
               return false;
           });
 
-          $('a#display-yes').on('click', function(e) {
+          $('a#display1-yes').on('click', function(e) {
               e.preventDefault()
-              $.getJSON('/display-yes',
+              $.getJSON('/display1-yes',
                   function(data) {
                 //do nothing
               });
-              dy.style.cssText = style_def;
-              dn.style = style_no;
+              dy1.style.cssText = style_def;
+              dn1.style = style_no;
+              return false;
+          });
+
+          var dn2 = document.getElementById("display2-no");
+          var dy2 = document.getElementById("display2-yes");
+          dn2.style.cssText = style_def;
+          $('a#display2-no').on('click', function(e) {
+              e.preventDefault()
+              $.getJSON('/display2-no',
+                  function(data) {
+                //do nothing
+              });
+              dy2.style = style_yes;
+              dn2.style.cssText = style_def;
+              return false;
+          });
+
+          $('a#display2-yes').on('click', function(e) {
+              e.preventDefault()
+              $.getJSON('/display2-yes',
+                  function(data) {
+                //do nothing
+              });
+              dy2.style.cssText = style_def;
+              dn2.style = style_no;
               return false;
           });
 

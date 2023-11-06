@@ -10,6 +10,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 import time
 import datetime
+import serial
 
 
 class App:
@@ -28,6 +29,12 @@ class App:
         self.font = ImageFont.truetype("/home/kali/CatV.ttf", 12)
         self.font2 = ImageFont.truetype("/home/kali/CatV.ttf", 15)
         self.font3 = ImageFont.truetype("/home/kali/CatV.ttf", 50)
+        self.ser = serial.Serial(port='/dev/ttyAMA1',
+                                 baudrate=19200,
+                                 parity=serial.PARITY_NONE,
+                                 stopbits=serial.STOPBITS_ONE,
+                                 bytesize=serial.EIGHTBITS,
+                                 timeout=1)
 
         self.clients = []
         self.settings1 = [
@@ -47,20 +54,29 @@ class App:
             21: 0,
             20: 0
         }
-        self.active_display = True
+        self.active_display1 = True
+        self.active_display2 = True
 
         t = Thread(target=self.draw)
         t.start()
         t2 = Thread(target=self.upd)
         t2.start()
 
-    def off_display(self):
-        self.active_display = False
+    def off_display1(self):
+        self.active_display1 = False
         self.device.command(0xAE)
 
-    def on_display(self):
-        self.active_display = True
+    def on_display1(self):
+        self.active_display1 = True
         self.device.command(0xAF)
+
+    def off_display2(self):
+        self.active_display2 = False
+        self.ser.write('off_display'.encode('utf-8'))
+
+    def on_display2(self):
+        self.active_display2 = True
+        self.ser.write('on_display'.encode('utf-8'))
 
     def reboot(self):
         self.device.command(0xAE)

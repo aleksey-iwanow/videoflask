@@ -1,7 +1,7 @@
 import subprocess
 import urllib.request
-from display import *
-from flask import Flask, request, render_template, Response, jsonify
+from test import *
+from flask import Flask, render_template, Response
 from camera import VideoCamera
 from datetime import datetime
 
@@ -90,19 +90,35 @@ def click_right():
     return ""
 
 
-@app.route('/display-yes')
-def display_yes():
-    if application.active_display:
-        application.off_display()
-        print(application.active_display)
+@app.route('/display1-yes')
+def display1_yes():
+    if application.active_display1:
+        application.off_display1()
+        print(application.active_display1)
     return ""
 
 
-@app.route('/display-no')
-def display_no():
-    if not application.active_display:
-        application.on_display()
-        print(application.active_display)
+@app.route('/display1-no')
+def display1_no():
+    if not application.active_display1:
+        application.on_display1()
+        print(application.active_display1)
+    return ""
+
+
+@app.route('/display2-yes')
+def display2_yes():
+    if application.active_display2:
+        application.off_display2()
+        print(application.active_display2)
+    return ""
+
+
+@app.route('/display2-no')
+def display2_no():
+    if not application.active_display2:
+        application.on_display2()
+        print(application.active_display2)
     return ""
 
 
