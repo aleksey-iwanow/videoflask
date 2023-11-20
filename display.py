@@ -29,7 +29,7 @@ class App:
         self.font = ImageFont.truetype("/home/kali/CatV.ttf", 12)
         self.font2 = ImageFont.truetype("/home/kali/CatV.ttf", 15)
         self.font3 = ImageFont.truetype("/home/kali/CatV.ttf", 50)
-        self.ser = serial.Serial(port='/dev/ttyAMA1',
+        self.ser = serial.Serial(port='/dev/ttyAMA0',
                                  baudrate=19200,
                                  parity=serial.PARITY_NONE,
                                  stopbits=serial.STOPBITS_ONE,
